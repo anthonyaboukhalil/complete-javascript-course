@@ -8,8 +8,8 @@ export const state = {
     query: '',
     results: [],
     page: 1,
+    resultsPerPage: RES_PER_PAGE,
   },
-  resultsPerPage: RES_PER_PAGE,
 };
 
 export const loadRecipe = async function (id) {
@@ -52,7 +52,7 @@ export const loadSearchResults = async function (query) {
 
 export const getSearchResusltPage = function (page = state.search.page) {
   state.search.page = page;
-  const start = (page - 1) * 10;
-  const end = page * 10;
+  const start = (page - 1) * RES_PER_PAGE;
+  const end = page * RES_PER_PAGE;
   return state.search.results.slice(start, end);
 };
