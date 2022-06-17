@@ -4,7 +4,7 @@
   "description": "Search for recipes!",
   "scripts": {
     "start": "parcel starter/index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build starter/index.html"
   },
   "author": "anthonyaboukhalil",
   "license": "ISC",
