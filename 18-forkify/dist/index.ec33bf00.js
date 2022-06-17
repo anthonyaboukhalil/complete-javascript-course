@@ -545,7 +545,7 @@ const controlSearchResults = async function() {
         (0, _resultsViewJsDefault.default).renderSpinner();
         // 1) Get search query
         const query = (0, _searchViewJsDefault.default).getQuery();
-        if (!query) throw error;
+        if (!query) return;
         // 2) Load search results
         await _modelJs.loadSearchResults(query);
         // 3) Render results
@@ -553,7 +553,7 @@ const controlSearchResults = async function() {
         // 4) Render initial pagination buttons
         (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
     } catch (err) {
-        (0, _resultsViewJsDefault.default).renderError();
+        console.log(err);
     }
 };
 const controlPagination = function(goToPage) {
@@ -2562,7 +2562,7 @@ const uploadRecipe = async function(newRecipe) {
         const ingredients = Object.entries(newRecipe).filter((entry)=>entry[0].startsWith("ingredient") && entry[1] !== "").map((ing)=>{
             const ingArr = ing[1].split(",").map((el)=>el.trim());
             // const ingArr = ing[1].replaceAll(' ', '').split(',');
-            if (ingArr.length !== 3) throw new Error("Wrong ingredient fromat! Please use the correct format");
+            if (ingArr.length !== 3) throw new Error("Wrong ingredient fromat! Please use the correct format :)");
             const [quantity, unit, description] = ingArr;
             return {
                 quantity: quantity ? +quantity : null,
@@ -2598,7 +2598,7 @@ parcelHelpers.export(exports, "MODAL_CLOSE_SEC", ()=>MODAL_CLOSE_SEC);
 const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes/";
 const TIMEOUT_SEC = 10;
 const RES_PER_PAGE = 10;
-const KEY = "908ce6fd-9fac-4178-9a5f-cb333fc634f1";
+const KEY = "4c452f9a-e452-4c54-978d-38aee28d8e92";
 const MODAL_CLOSE_SEC = 2.5;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5MiOq":[function(require,module,exports) {
@@ -2633,7 +2633,40 @@ const AJAX = async function(url, uploadData) {
     } catch (err) {
         throw err;
     }
+}; /*
+export const getJSON = async function (url) {
+  try {
+    const fetchPro = fetch(url);
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
 };
+
+export const sendJSON = async function (url, uploadData) {
+  try {
+    const fetchPro = fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(uploadData),
+    });
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+*/ 
 
 },{"regenerator-runtime":"dXNgZ","./config.js":"70DKu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QIHi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
