@@ -41,7 +41,7 @@ const controlSearchResults = async function () {
 
     // 1) Get search query
     const query = searchView.getQuery();
-    if (!query) throw error;
+    if (!query) return;
 
     // 2) Load search results
     await model.loadSearchResults(query);
@@ -52,7 +52,7 @@ const controlSearchResults = async function () {
     // 4) Render initial pagination buttons
     paginationView.render(model.state.search);
   } catch (err) {
-    resultsView.renderError();
+    console.log(err);
   }
 };
 
