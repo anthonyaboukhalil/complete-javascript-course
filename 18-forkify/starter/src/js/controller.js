@@ -59,7 +59,11 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
   recipeView.update(model.state.recipe);
 };
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
+};
 const init = function () {
+  bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerRenderAddBookmark(controlAddBookmark);
