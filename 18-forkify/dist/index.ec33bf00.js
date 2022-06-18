@@ -2597,7 +2597,7 @@ parcelHelpers.export(exports, "KEY", ()=>KEY);
 parcelHelpers.export(exports, "MODAL_CLOSE_SEC", ()=>MODAL_CLOSE_SEC);
 const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes/";
 const TIMEOUT_SEC = 10;
-const RES_PER_PAGE = 1;
+const RES_PER_PAGE = 10;
 const KEY = "28a174f2-6407-4471-9fd1-6428c92bf4af";
 const MODAL_CLOSE_SEC = 2.5;
 
